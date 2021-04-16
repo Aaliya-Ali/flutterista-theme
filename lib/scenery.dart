@@ -11,7 +11,6 @@ class Scenery extends StatefulWidget {
 }
 
 class _SceneryState extends State<Scenery> {
-  // You can adjust this, as needed, but it should not change with the theme.
   final _textAreaHeight = 250.0;
 
   @override
@@ -22,16 +21,22 @@ class _SceneryState extends State<Scenery> {
         children: [
           CustomPaint(
             foregroundPainter: SceneryPainter(
-              skyColor: CustomWidgetThemes.of(context).sceneryThemeData!.skyFillColor,
-              waterColor: CustomWidgetThemes.of(context).sceneryThemeData!.waterFillColor,
-              mountainColor: CustomWidgetThemes.of(context).sceneryThemeData!.mountainFillColor,
+              skyColor:
+                  CustomWidgetThemes.of(context).sceneryThemeData!.skyFillColor,
+              waterColor: CustomWidgetThemes.of(context)
+                  .sceneryThemeData!
+                  .waterFillColor,
+              mountainColor: CustomWidgetThemes.of(context)
+                  .sceneryThemeData!
+                  .mountainFillColor,
               textHeight: _textAreaHeight,
               drawSun: CustomWidgetThemes.of(context).sceneryThemeData!.drawSun,
-              drawMoon: CustomWidgetThemes.of(context).sceneryThemeData!.drawMoon,
+              drawMoon:
+                  CustomWidgetThemes.of(context).sceneryThemeData!.drawMoon,
             ),
             child: Container(),
           ),
-          //todo(you) - Can you find a way to toggle this text area background color according to the theme?
+
           Positioned(
             bottom: 0,
             child: Container(
@@ -49,55 +54,75 @@ class _SceneryState extends State<Scenery> {
             child: Container(
               width: constraints.maxWidth,
               child: Padding(
-                padding: const EdgeInsets.all(2.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Expanded(
-                      child: RadioListTile<ThemeType>(
-                        contentPadding: EdgeInsets.symmetric(horizontal: 0),
-                        title: const Text('Light', style: TextStyle(fontSize: 12)),
-                        groupValue: myTheme.themeType,
-                        value: ThemeType.Light,
-                        onChanged: (ThemeType? mode) => myTheme.setThemeType(ThemeType.Light),
-                      ),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 2.0, horizontal: 8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Expanded(
+                          child: RadioListTile<ThemeType>(
+                            contentPadding: EdgeInsets.symmetric(horizontal: 4),
+                            title: const Text(
+                              'Light',
+                            ),
+                            groupValue: myTheme.themeType,
+                            value: ThemeType.Light,
+                            onChanged: (ThemeType? mode) =>
+                                myTheme.setThemeType(ThemeType.Light),
+                          ),
+                        ),
+                        Expanded(
+                          child: RadioListTile<ThemeType>(
+                            contentPadding: EdgeInsets.symmetric(horizontal: 4),
+                            title: const Text('Dark'),
+                            groupValue: myTheme.themeType,
+                            value: ThemeType.Dark,
+                            onChanged: (ThemeType? mode) =>
+                                myTheme.setThemeType(ThemeType.Dark),
+                          ),
+                        ),
+                        Expanded(
+                          child: RadioListTile<ThemeType>(
+                            contentPadding: EdgeInsets.symmetric(horizontal: 4),
+                            title: const Text('Dim'),
+                            groupValue: myTheme.themeType,
+                            value: ThemeType.Dim,
+                            onChanged: (ThemeType? mode) =>
+                                myTheme.setThemeType(ThemeType.Dim),
+                          ),
+                        ),
+                      ],
                     ),
-                    Expanded(
-                      child: RadioListTile<ThemeType>(
-                        contentPadding: EdgeInsets.symmetric(horizontal: 0),
-                        title: const Text('Dark', style: TextStyle(fontSize: 12)),
-                        groupValue: myTheme.themeType,
-                        value: ThemeType.Dark,
-                        onChanged: (ThemeType? mode) => myTheme.setThemeType(ThemeType.Dark),
-                      ),
-                    ),
-                    Expanded(
-                      child: RadioListTile<ThemeType>(
-                        contentPadding: EdgeInsets.symmetric(horizontal: 0),
-                        title: const Text('Dim', style: TextStyle(fontSize: 12)),
-                        groupValue: myTheme.themeType,
-                        value: ThemeType.Other,
-                        onChanged: (ThemeType? mode) => myTheme.setThemeType(ThemeType.Other),
-                      ),
-                    ),
-                    Expanded(
-                      child: RadioListTile<ThemeType>(
-                        contentPadding: EdgeInsets.symmetric(horizontal: 0),
-                        title: const Text('Dash', style: TextStyle(fontSize: 12)),
-                        groupValue: myTheme.themeType,
-                        value: ThemeType.Dash,
-                        onChanged: (ThemeType? mode) => myTheme.setThemeType(ThemeType.Dash),
-                      ),
-                    ),
-                    Expanded(
-                      child: RadioListTile<ThemeType>(
-                        contentPadding: EdgeInsets.symmetric(horizontal: 0),
-                        title: const Text('Flutterista', style: TextStyle(fontSize: 12)),
-                        groupValue: myTheme.themeType,
-                        value: ThemeType.Flutterista,
-                        onChanged: (ThemeType? mode) => myTheme.setThemeType(ThemeType.Flutterista),
-                      ),
-                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: RadioListTile<ThemeType>(
+                            contentPadding: EdgeInsets.symmetric(horizontal: 4),
+                            title: const Text(
+                              'Dash',
+                            ),
+                            groupValue: myTheme.themeType,
+                            value: ThemeType.Dash,
+                            onChanged: (ThemeType? mode) =>
+                                myTheme.setThemeType(ThemeType.Dash),
+                          ),
+                        ),
+                        Expanded(
+                          child: RadioListTile<ThemeType>(
+                            contentPadding: EdgeInsets.symmetric(horizontal: 4),
+                            title: const Text('Flutterista'),
+                            groupValue: myTheme.themeType,
+                            value: ThemeType.Flutterista,
+                            onChanged: (ThemeType? mode) =>
+                                myTheme.setThemeType(ThemeType.Flutterista),
+                          ),
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ),

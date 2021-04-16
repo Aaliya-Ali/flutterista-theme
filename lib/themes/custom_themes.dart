@@ -35,7 +35,7 @@ class CustomWidgetThemes {
           drawSun: false,
         );
         break;
-      case ThemeType.Other:
+      case ThemeType.Dim:
         sceneryThemeData = SceneryThemeData(
           skyFillColor: Color(0xff132C33),
           mountainFillColor: Colors.blueGrey.shade600,

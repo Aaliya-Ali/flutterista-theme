@@ -33,13 +33,14 @@ class MyTheme with ChangeNotifier {
           primaryColor: Colors.grey.shade100,
           accentColor: Colors.yellow,
           textTheme: TextTheme(
-            headline3: TextStyle(
-              fontSize: 50.0,
-              fontFamily: 'Georgia',
-              color: Colors.yellow.shade600,
-            ),
-            subtitle1: TextStyle(fontSize: 15.0),
-          ),
+              headline3: TextStyle(
+                fontSize: 50.0,
+                fontWeight: FontWeight.w600,
+                fontFamily: 'Georgia',
+                color: Colors.yellow.shade600,
+              ),
+              subtitle1:
+                  TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
         );
       case ThemeType.Dark:
         return ThemeData(
@@ -48,16 +49,18 @@ class MyTheme with ChangeNotifier {
             headline3: TextStyle(
               color: Colors.white,
               fontSize: 50.0,
+              fontWeight: FontWeight.w500,
               fontFamily: 'Georgia',
             ),
-            subtitle1: TextStyle(fontSize: 15.0, color: Colors.grey.shade400),
+            subtitle1: TextStyle(fontSize: 16.0, color: Colors.grey.shade400),
             bodyText1: TextStyle(
                 fontSize: 14.0,
                 fontFamily: 'Hind',
-                color: Colors.grey.shade300),
+                color: Colors.grey.shade300
+            ),
           ),
         );
-      case ThemeType.Other:
+      case ThemeType.Dim:
         return ThemeData(
           primaryColor: Colors.black,
           accentColor: Colors.grey.shade100,
@@ -66,17 +69,18 @@ class MyTheme with ChangeNotifier {
             headline3: TextStyle(
               color: Colors.white,
               fontSize: 50.0,
-              // fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w500,
               fontFamily: 'Georgia',
             ),
-            subtitle1: TextStyle(fontSize: 15.0, color: Colors.grey.shade400),
+            subtitle1: TextStyle(fontSize: 16.0, color: Colors.grey.shade400),
             bodyText1: TextStyle(
                 fontSize: 14.0,
                 fontFamily: 'Hind',
-                color: Colors.grey.shade300),
+                color: Colors.grey.shade300
+            ),
           ),
         );
-        case ThemeType.Dash:
+      case ThemeType.Dash:
         return ThemeData(
           accentColor: Colors.white,
           textTheme: TextTheme(
@@ -86,30 +90,33 @@ class MyTheme with ChangeNotifier {
               fontWeight: FontWeight.bold,
               fontFamily: 'Georgia',
             ),
-            subtitle1: TextStyle(fontSize: 15.0, color: Colors.white),
+            subtitle1: TextStyle(fontSize: 16.0, color: Colors.white),
             bodyText1: TextStyle(
                 fontSize: 14.0,
                 fontFamily: 'Hind',
-                color: Colors.grey.shade300),
+                color: Colors.grey.shade300
+            ),
           ),
         );
-        case ThemeType.Flutterista:
+      case ThemeType.Flutterista:
         return ThemeData(
-          brightness: Brightness.dark,
+          // brightness: Brightness.dark,
           primaryColor: Color(0xff9C59D1),
           accentColor: Colors.white,
-
+          unselectedWidgetColor: Color(0Xff3C0B9A),
           textTheme: TextTheme(
             headline3: TextStyle(
               color: Colors.white,
               fontSize: 50.0,
               fontFamily: 'Georgia',
             ),
-            subtitle1: TextStyle(fontSize: 15.0, color: Colors.white),
+            subtitle1: TextStyle(fontSize: 16.0, color: Colors.white),
             bodyText1: TextStyle(
                 fontSize: 14.0,
+                fontWeight:FontWeight.bold,
                 fontFamily: 'Hind',
-                color: Colors.grey.shade300),
+                color: Colors.grey.shade300
+            ),
           ),
         );
     }
@@ -119,7 +126,7 @@ class MyTheme with ChangeNotifier {
 enum ThemeType {
   Light,
   Dark,
-  Other,
+  Dim,
   Dash,
   Flutterista,
 }
